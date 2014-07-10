@@ -1,5 +1,18 @@
-java-buildpack-vm Cookbook
+java-buildpack cookbook
 =========================
+
+This [cookbook](https://github.com/malston/java-buildpack-vm) installs Sun Java 7, RubyEnv, RubyGem, and installs the Java Buildpack forked from malston repository. This fork contains all the ruby gems required to build the offline buildpack. They are packaged into the `vendor/cache` directory.
+
+### Install vagrant plugins
+
+    vagrant plugin install vagrant-sshfs #<-- not using this yet
+    vagrant plugin install vagrant-omnibus
+    vagrant plugin uninstall vagrant-berkshelf #<-- make you don't have an older version
+    vagrant plugin install vagrant-berkshelf --plugin-version=2.0.1
+
+    gem install berkshelf
+    berks init . #<— first time and has already be done and checked in to git
+    berks install
 
 ## Supported Platforms
 
