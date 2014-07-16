@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 # Plugin-specific configurations
   # Detects vagrant-omnibus plugin
   if Vagrant.has_plugin?('vagrant-omnibus')
-    puts 'INFO: Vagrant-omnibus plugin detected.'
+    # puts 'INFO: Vagrant-omnibus plugin detected.'
     # Set the version of chef to install using the vagrant-omnibus plugin
     config.omnibus.chef_version = :latest
   else
@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Detects vagrant-berkshelf plugin
   if Vagrant.has_plugin?('berkshelf')
-    puts 'INFO: Vagrant-berkshelf plugin detected.'
+    # puts 'INFO: Vagrant-berkshelf plugin detected.'
 
     # The path to the Berksfile to use with Vagrant Berkshelf
     # config.berkshelf.berksfile_path = "./Berksfile"
@@ -112,9 +112,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
     }
 
-    #chef.add_recipe "yum::default"
-    #chef.add_recipe "rbenv::ruby_build"
-    #chef.add_recipe "java-buildpack-vm"
+    chef.custom_config_path = "Vagrantfile.chef"
 
     chef.run_list = [
       "recipe[java-buildpack-vm::default]"
